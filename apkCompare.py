@@ -1,10 +1,12 @@
-from fileSizeCompare import fileDirSizeDiff, fileSizeDiff
+from fileSizeCompare import fileDirSizeDiff
 from sizeFormat import sizeFormat
 import os
 from os.path import join, getsize
 
-oldApkPath = '/Users/liulei/StudioProjects/apksize/oldapk/TPPcn227200vc10.0.6vn1006'
-newApkPath = '/Users/liulei/StudioProjects/apksize/newapk/TPPcn228200vc10.1.1vn1011'
+oldApkDirPath = '/Users/liulei/StudioProjects/apksize/oldapk/TPPcn227200vc10.0.6vn1006'
+newApkDirPath = '/Users/liulei/StudioProjects/apksize/newapk/TPPcn228200vc10.1.1vn1011'
+oldApkFilePath = '/Users/liulei/StudioProjects/apksize/oldapk/TPPcn227200vc10.0.6vn1006.apk'
+newApkFilePath = '/Users/liulei/StudioProjects/apksize/newapk/TPPcn228200vc10.1.1vn1011.apk'
 
 def arscFileSizeDiff():
     print(sizeFormat(getFileSizeBySuffix(newApkPath, 'arsc') - getFileSizeBySuffix(oldApkPath, 'arsc')))
@@ -18,7 +20,7 @@ def dexSizeDiff():
 
 
 def apkSizeDiff():
-    print(sizeFormat(arscFileSizeDiff() + resDirSizeDiff() + dexSizeDiff()))
+    print(sizeFormat(getsize(newApkFilePath) - getsize(oldApkFilePath)))
   
 
 
@@ -41,4 +43,4 @@ def getFileSizeByDir(path, dirName):
     return size 
 
 
-arscFileSizeDiff()
+apkSizeDiff()

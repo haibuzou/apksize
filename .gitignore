@@ -1,4 +1,5 @@
 /newapk
 /oldapk
 /.history
-
+/.idea
+/__pycache__
